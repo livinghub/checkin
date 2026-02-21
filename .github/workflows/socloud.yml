@@ -5,9 +5,9 @@ on:
   - cron: "0 1 * * *"
   
   push:
-    branches: [master]
+    branches: [socloud]
   pull_request:
-    branches: [master]
+    branches: [socloud]
     
   workflow_dispatch:
 jobs:

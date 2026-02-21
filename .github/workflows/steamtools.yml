@@ -5,9 +5,9 @@ on:
   - cron: "10 1 * * *"
   
   push:
-    branches: [master]
+    branches: [steamtools]
   pull_request:
-    branches: [master]
+    branches: [steamtools]
     
   workflow_dispatch:
 jobs:

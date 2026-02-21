@@ -48,7 +48,7 @@ def socloud(cookie_string):
     driver = uc.Chrome(version_main=version, options=options)
     
     # 记得写完整的url 包括http和https
-    driver.get('https://socloud.me/user##')
+    driver.get('https://bbs.steamtools.net/')
 
     # 首先清除由于浏览器打开已有的
     driver.delete_all_cookies()
@@ -71,24 +71,28 @@ def socloud(cookie_string):
 
     # 刷新网页
     driver.refresh()
+    time.sleep(10)
+    driver.refresh()
+    time.sleep(10)
+    
 
-    # 等待首页出现
-    WebDriverWait(driver, 240).until(
-        lambda x: x.title != "登录 — SoCloud"
-    )
+    # # 等待首页出现
+    # WebDriverWait(driver, 240).until(
+    #     lambda x: x.title != "登录 — SoCloud"
+    # )
 
-    # 检测签到情况
-    element = driver.find_element(By.XPATH, '//*[@id="checkin-div"]/a')
-    # print(element.text)
-    if element.text == '明日再来':
-        print('明日再来, 今天已签到')
-    elif element.text == '每日签到':
-        element.click()
-        print('进行签到')
-        time.sleep(3)
-        element = driver.find_element(By.XPATH, '//*[@id="checkin-div"]/a')
-        if element.text == '明日再来':
-            print('签到成功')
+    # # 检测签到情况
+    # element = driver.find_element(By.XPATH, '//*[@id="checkin-div"]/a')
+    # # print(element.text)
+    # if element.text == '明日再来':
+    #     print('明日再来, 今天已签到')
+    # elif element.text == '每日签到':
+    #     element.click()
+    #     print('进行签到')
+    #     time.sleep(3)
+    #     element = driver.find_element(By.XPATH, '//*[@id="checkin-div"]/a')
+    #     if element.text == '明日再来':
+    #         print('签到成功')
 
     # input()
 

@@ -63,7 +63,7 @@ def socloud(cookie_string):
     ]
     for cookie in cookie_dict:
         driver.add_cookie({
-            "domain": "socloud.me", # need to change
+            "domain": "bbs.steamtools.net", # need to change
             "name": cookie["name"],
             "value": cookie["value"],
             "path": "/",

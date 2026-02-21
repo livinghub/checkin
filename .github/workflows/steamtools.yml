@@ -1,8 +1,8 @@
-name: socloud
+name: steamtools
 
 on:
   schedule:
-  - cron: "0 1 * * *"
+  - cron: "10 1 * * *"
   
   push:
     branches: [master]
@@ -24,5 +24,5 @@ jobs:
         pip install -r ./requirements.txt
     - name: Run 
       run: |
-        python ./checkin.py "${{secrets.SOCLOUD_COOKIE}}"
+        python ./checkin.py "${{secrets.steamtools_COOKIE}}"
     - uses: liskin/gh-workflow-keepalive@main

@@ -1,0 +1,30 @@
+name: steamtools
+
+on:
+  schedule:
+  - cron: "10 1 * * *"
+  
+  push:
+    branches: [steamtools]
+  pull_request:
+    branches: [steamtools]
+    
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: steamtools  # 检出steamtools分支
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip' # caching pip dependencies
+    - name: Install requirements
+      run: |
+        pip install -r ./requirements.txt
+    - name: Run 
+      run: |
+        python ./checkin.py "${{secrets.steamtools_COOKIE}}"
+    - uses: liskin/gh-workflow-keepalive@main
